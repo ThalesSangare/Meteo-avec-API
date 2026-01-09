@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // fonction pour obtenir les données météo
     async function obtenirMeteo(ville) {
         try {
-            const apiKey = 'e6b9f83fd808842a8d0c24813c5e83db';
+            const apiKey = 'votre Apikey';
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apiKey}&units=metric&lang=fr`;
             
             const response = await fetch(url);
