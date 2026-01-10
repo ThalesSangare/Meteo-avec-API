@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // fonction pour obtenir les données météo
     async function obtenirMeteo(ville) {
         try {
+            //====================================================
+            // Remplacez 'votre Apikey' par votre clé API OpenWeatherMap
+            //========================================================  
             const apiKey = 'votre Apikey';
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${apiKey}&units=metric&lang=fr`;
             
@@ -28,15 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('ville').innerText = villelabel;
                 document.getElementById('pays').innerText = payslabel;
                 document.getElementById('temperature').innerText = `${temperaturelabel} °C`;
-
-
                 document.getElementById('humidite').innerText = `Humidité: ${humidite}%`;
                 // document.getElementById('vent').innerText = `Vent: ${vent} km/h`;
                 document.getElementById('description').innerText = description;
                 document.querySelector('#icone').src = `https://openweathermap.org/img/wn/${data.weather[0].icon }@2x.png`;
     
-
-
         } catch (error) {
             console.error('Erreur lors de la récupération des données météo:', error);
             const meteoInfo = document.getElementById('meteo-info');
@@ -49,7 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     btn_recherche.addEventListener('click', () => {
         const ville = input.value.trim();
-        if (ville) {
+        if(ville === '') {
+            alert('Veuillez entrer le nom d\'une ville.');
+            return;
+        }else{
             obtenirMeteo(ville);
             input.value = '';
         }
