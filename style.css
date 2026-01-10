@@ -1,0 +1,89 @@
+body {
+    /* ici je vais centrer le container */
+    background-color: #00f2fe;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/* h3 {
+    text-align: center;
+    margin-bottom: 20px;
+
+} */
+
+.container {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    background-color: #4a7888;
+    color: white;
+}
+
+span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.temperaturediv #temperature {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.search-box {
+    text-align: center;
+    margin-top: 20px;
+}
+#search-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#icone {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+#description, #humidite {
+    text-align: center;
+}
+.temperaturediv {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.details {
+    text-align: center;
+}
+#description {
+    font-style: italic;
+    color: #555;
+}
+#humidite {
+    font-weight: bold;
+    color: #333;
+}
+#search-input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+#search-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+

@@ -1,14 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // les variables
     const input = document.getElementById('search-input');
+    input.value = '';
     const btn_recherche = document.getElementById('search-button');
-
-    let ville = '';
-    let villelabel = document.getElementById('ville');
-    let payslabel = document.getElementById('pays');
-    let temperaturelabel = document.getElementById('temperature');
-    const champs_recherche = document.getElementById('search-input');
-    const bouton_recherche = document.getElementById('search-button');
 
     // fonction pour obtenir les données météo
     async function obtenirMeteo(ville) {
@@ -18,25 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const response = await fetch(url);
             const data = await response.json();
-            console.log(data);
-            if(!data.cod === 200) {
+            // console.log(data);
+            if(data.name === undefined) {
                 alert('Ville non trouvée. Veuillez vérifier le nom et réessayer.');
                 return;
             }
             const villelabel = data.name;
                 const payslabel = data.sys.country;
                 const temperaturelabel = data.main.temp;
-                // const humidite = data.main.humidity;
+
+                const humidite = data.main.humidity;
                 // const vent = data.wind.speed;
-                // const description = data.weather[0].description;
-                // const icone = data.weather[0].icon;
+                const description = data.weather[0].description;
+
                 document.getElementById('ville').innerText = villelabel;
                 document.getElementById('pays').innerText = payslabel;
                 document.getElementById('temperature').innerText = `${temperaturelabel} °C`;
-                // document.getElementById('humidite').innerText = `Humidité: ${humidite}%`;
+
+
+                document.getElementById('humidite').innerText = `Humidité: ${humidite}%`;
                 // document.getElementById('vent').innerText = `Vent: ${vent} km/h`;
-                // document.getElementById('description').innerText = description;
-                // document.querySelector('#icone').src = `http://
+                document.getElementById('description').innerText = description;
+                document.querySelector('#icone').src = `https://openweathermap.org/img/wn/${data.weather[0].icon }@2x.png`;
     
 
 
@@ -54,11 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const ville = input.value.trim();
         if (ville) {
             obtenirMeteo(ville);
+            input.value = '';
         }
 
     });
 
-    obtenirMeteo('Roubaix');
+    // Obtenir la météo pour une ville par défaut au chargement de la page
+    obtenirMeteo('Lille');
+
 
 
 
