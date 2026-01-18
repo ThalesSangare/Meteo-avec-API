@@ -53,6 +53,26 @@ span {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+#search-input:focus {
+    border-color: #007bff;
+}
+
+#search-button {
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    padding: 10px;
+    transition: 0.5s;
+}
+#search-button:hover {
+    background-color: #05213e;
+}
+
+#meteo-info {
+    color: rgb(134, 34, 34);
+    font-style: italic;
+}
 #icone {
     display: block;
     margin: 0 auto;
